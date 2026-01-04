@@ -46,26 +46,17 @@ $$\log EC_{50} = -5.40188 + 0.01053(PEOE\_VSA-1) - 0.00118(EC_{50}) - 0.01647(PE
 ### Training Set Performance
 The correlation plot shows a strong linear fit between experimental and predicted activities, with a cross-validated $R^2$ of ~0.74 indicating robust predictive power.
 
-![Training Set Correlation](Images/logec50_and_xpred_correlation_plot.png)  
-*Figure 1: Observed vs. Predicted activities for the Training Set ($R^2 = 0.7357$).*
-
 ### Outlier Detection
 Outliers were identified using the cross-validated Z-score (**$XZ\_SCORE**).
 * **Criteria:** $|Z| > 1.5$.
 * **Results:** 10 molecules were identified as outliers in the training set, indicating they deviate from the usual 95% behavior of the model.
 
-![Outliers in Training Set](Images/Outliers_Detected_in_Training_Set.png)  
-*Figure 2: Statistical identification of outliers in the training database based on $XZ\_SCORE.*
-
 ---
 ## Test Set Prediction & Toxicity Screening
 The validated model was applied to the test dataset (`mdr_pharmacophore.mdb`) to identify potent blockers and evaluate predictive accuracy. 
 
-![Test Set Results](Images/Outliers_Detected_in_Testing_Set.png)  
-*Figure 3: Database viewer showing experimental values vs. predicted values ($Test_PRED$) and residuals ($res$).*
-
 ### High-Risk Inhibitors & Significant Outliers
-Analysis of the 15-molecule test set identified 7 significant outliers (highlighted in Figure 3) where the model's prediction deviated by over 1 log unit.
+Analysis of the 15-molecule test set identified 7 significant outliers where the model's prediction deviated by over 1 log unit.
 
 | Molecule | Experimental $EC_{50}$ (nM) | $\log EC_{50}$ | $Test\_PRED$ | Residual ($res$) | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -81,4 +72,10 @@ Analysis of the 15-molecule test set identified 7 significant outliers (highligh
 
 ## Conclusion
 This study developed a statistically robust 2D-QSAR model ($R^2 = 0.768$) that correlates molecular properties with hERG inhibition. However, validation against the 15-molecule test set revealed critical limitations in the model’s **Applicability Domain**, with 7 identified outliers representing nearly 47% of the set. Specifically, sub-nanomolar inhibitors like Molecules 1, 3, 5, and 11 exhibited extreme potency (as low as **0.0267 nM**) that the model significantly under-predicted. These compounds represent a severe risk for hERG-mediated cardiotoxicity and sudden cardiac arrest; they are rejected from development to meet FDA safety standards. Conversely, for molecules with higher $EC_{50}$ values like Molecule 13 (82.688 nM), the model over-predicted toxicity.Statistically, high residual values (up to 2.6 log units) suggest that while the 6 optimized descriptors capture general trends, they lack the sensitivity required to model specific binding interactions of the most dangerous sub-nanomolar blockers, necessitating further structural refinement in future iterations.
+
+## **Repository Organization**
+* `/Data`: Training and Testing Files. (Provided Upon Request)
+* `/Images`: Corelation Plots and Outliers Detection
+* `/Model`: Trained 2D-QSAR Model.
+* `Results`: Final Report.
 
