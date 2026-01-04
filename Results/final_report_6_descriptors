@@ -1,0 +1,48 @@
+QuaSAR-Model(PLS): c:/users/user/desktop/github/qsar/mdr_substanzen_b_corina4_neu.mdb
+Sat Jan 03 21:47:10 2026
+
+Activity Field               : log EC50
+Weight Field                 : 
+Condition Limit              : 1e+006
+Component Limit              : 10
+
+Observations                 : 141
+Descriptors                  : 6
+Components Used              : 6
+Condition Number             : 12418.961
+
+ROOT MEAN SQUARE ERROR (RMSE): 0.42636     
+CORRELATION COEFFICIENT (R2) : 0.76808     
+CROSS-VALIDATED RMSE         : 0.45557     
+CROSS-VALIDATED R2           : 0.73565     
+
+ESTIMATED LINEAR MODEL
+
+log EC50 =
+        -5.40188
+        +0.01053 * PEOE_VSA-1
+        -0.00118 * EC50
+        -0.01647 * PEOE_VSA+1
+        +0.00995 * SMR_VSA6
+        +0.01489 * vdw_area
+        -0.00040 * weinerPath
+
+ESTIMATED NORMALIZED LINEAR MODEL (SD = Standard Deviation)
+
+log EC50 / SD(log EC50) =
+        -6.10151
+        +0.53266 * PEOE_VSA-1 / SD(PEOE_VSA-1)
+        -0.22650 * EC50 / SD(EC50)
+        -0.43735 * PEOE_VSA+1 / SD(PEOE_VSA+1)
+        +0.33391 * SMR_VSA6 / SD(SMR_VSA6)
+        +1.19643 * vdw_area / SD(vdw_area)
+        -0.66296 * weinerPath / SD(weinerPath)
+
+RELATIVE IMPORTANCE OF DESCRIPTORS
+
+0.445210  PEOE_VSA-1
+0.189317  EC50
+0.365549  PEOE_VSA+1
+0.279093  SMR_VSA6
+1.000000  vdw_area
+0.554118  weinerPath
